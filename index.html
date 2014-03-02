@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <meta charset="utf-8">
+  <title>PS</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/monokai.min.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script type="text/javascript" src="lib/asciimo.js"></script> 
+  <script type="text/javascript" src="http://code.angularjs.org/1.2.13/angular.min.js"></script>     
+  <script type="text/javascript" src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <style type="text/css">
+    html,body {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: green;
+      font-family: monospace;
+      font-size: 32px;
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body > div {
+      /* It looks like browser support might be lacking for ch? FF works anyhow. */
+      width: 80ch;
+      height: 100%;
+      margin: 0 auto;
+      padding: 1em 0;
+      /*border: 1px dotted #777; */
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    .hljs {
+      font-size: 75%;
+    }
+
+  </style>
+<body>
+  <div ng-view></div>
+</body>
+</html>
