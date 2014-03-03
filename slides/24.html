@@ -1,0 +1,31 @@
+<pre figlet="speed" style="font-size: 60%">    Controller</pre>
+<pre highlight>
+  describe('next method',function(){
+    it('should increase current pageNr and navigate to next slide',function(){    
+
+     inject(function($rootScope,$controller){
+        scope = $rootScope.$new();
+
+        //Create a spy to spy on $location.path calls.
+        pathSpy = sinon.spy();
+
+        //Instantiate the controller, passing along our new scope
+        //and overriding $location
+        $controller("PresentationCtrl",{ 
+          '$scope':scope, 
+          '$location': { path: pathSpy },
+          'nrOfPages': 3,
+        });
+
+        expect(scope.pageNr).to.be.equal(1);
+        scope.next();
+        
+        //scope.$apply works as well
+        scope.$digest();
+
+        expect(scope.pageNr).to.be.equal(2);
+        expect(pathSpy).to.have.been.calledOnce.and.calledWith('/slides/2');
+      });
+    });
+  });
+</pre>

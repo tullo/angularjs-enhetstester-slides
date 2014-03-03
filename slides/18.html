@@ -1,0 +1,21 @@
+<pre figlet="double">      Service</pre>
+<pre highlight>
+    it('should return a promise that resolves to a figlet',function(done){
+    inject(function($rootScope,figlet){
+      
+      //Mock Figlet.write
+      window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
+
+      var promise = figlet('text','font'); 
+
+      expect(promise).to.be.eventually.equal('foobar').and.notify(done);
+
+    });
+  });
+
+</pre>
+<div style="white-space: pre; font-size: 80%;">
+<span style="color: red">  PhantomJS 1.9.7 (Linux) Figlet service should return a promise that resolves to a figlet FAILED</span>
+    timeout of 2000ms exceeded
+  PhantomJS 1.9.7 (Linux): Executed 7 of 7 <span style="color: red">(1 FAILED)</span> (2.396 secs / 2.034 secs)
+</div>

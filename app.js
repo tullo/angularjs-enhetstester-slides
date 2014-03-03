@@ -22,7 +22,7 @@ MMMMMMMM               MMMMMMMM   ooooooooooo      ddddddddd   ddddd    uuuuuuuu
 
 //Create module 'app'
 angular.module('app',['ngRoute'])
-       .constant('nrOfPages',18);
+       .constant('nrOfPages',35);
       
 
 
@@ -87,9 +87,12 @@ angular.module('app').controller('PresentationCtrl',function($scope,$location,$r
   $scope.keypress = function(event) {
     if (event.charCode === 32) {
       $scope.next();
+      event.preventDefault();
     } else if (event.keyCode === 13) {
       $scope.prev();
+      event.preventDefault();
     }
+
   };
 
 

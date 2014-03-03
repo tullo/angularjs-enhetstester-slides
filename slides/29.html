@@ -1,0 +1,35 @@
+<pre figlet="speed" style="font-size: 60%">    Directive</pre>
+<pre highlight>
+  describe('Figlet directive',function(){
+    it('should replace the contents of the figlet',function(){
+      
+      //mock figlet service
+      module('app', function($provide) {
+        $provide.provider('figlet', function() {
+            this.$get = function($q,$rootScope) {
+                return function(){
+                  var deferred = $q.defer();
+                  deferred.resolve('foobar'); 
+                  return deferred.promise;
+                };
+            };
+        });
+      });
+
+      //A test template with the directive under testing
+      var element = angular.element('&lt;pre figlet="awesomefont"&gt;awesome&lt;/pre&gt;');
+
+      inject(function($compile,$rootScope){
+       
+        //Compile the template
+        $compile(element)($rootScope);
+        //One digest to compile it, triggering link and $observe
+        $rootScope.$digest();
+
+        //Let's check that it has transformed the DOM
+        expect(element.text()).to.equal('foobar');
+        
+      });
+    });
+  });
+</pre>

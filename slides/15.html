@@ -1,0 +1,16 @@
+<pre figlet="double">      Service</pre>
+<pre highlight>
+  it('should return a promise that resolves to a figlet',function(done){
+    inject(function(figlet){
+      
+      //Mock Figlet.write
+      window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
+
+      var promise = figlet('text','font'); 
+
+      ....???
+
+    });
+  });
+
+</pre>

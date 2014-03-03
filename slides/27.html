@@ -1,0 +1,36 @@
+<pre figlet="speed" style="font-size: 60%">    Directive</pre>
+<pre highlight>
+  describe('Figlet directive',function(){
+    it('should replace the contents of the figlet',function(){
+      
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+      //A test template with the directive under testing
+      var element = angular.element('&lt;pre figlet="awesomefont"&gt;awesome&lt;/pre&gt;');
+
+      inject(function($compile,$rootScope){
+       
+        //Compile the template
+        $compile(element)($rootScope);
+        //One digest to compile it, triggering link and $observe
+        $rootScope.$digest();
+
+        ...men figlet servicen? Den laddar ju fonter med Ajax å andra svåra saker.
+
+
+      });
+      
+    });
+  });
+</pre>
