@@ -1,0 +1,24 @@
+<div>
+  <pre figlet="isometric3" style="font-size: 60%;">   Sinon</pre>
+  <pre>
+              Standalone test spies, stubs and mocks for JavaScript.
+              No dependencies, works with any unit testing framework. 
+  </pre>
+
+  <pre highlight>describe('Foobar',function(){
+  it('should do baz',function(){
+    
+    var success  = sinon.spy()
+    var fail = sinon.stub().throws() 
+
+    doSomething(success,fail)
+
+    expect(success.calledOnce).to.be.ok
+
+    //or with sinon-chai plugin
+    expect(success).to.have.been.calledOnce
+  })
+})
+  </pre>
+
+</div>

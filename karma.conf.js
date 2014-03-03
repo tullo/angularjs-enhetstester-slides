@@ -14,6 +14,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/chai-as-promised/lib/chai-as-promised.js',
+      'http://code.jquery.com/jquery-2.1.0.min.js',
       'http://code.angularjs.org/1.2.13/angular.js',
       'http://code.angularjs.org/1.2.13/angular-mocks.js',
       'http://code.angularjs.org/1.2.13/angular-route.js',

@@ -31,14 +31,20 @@
       /*border: 1px dotted #777; */
       box-sizing: border-box;
       -moz-box-sizing: border-box;
+
+     /*outline: 1px dotted #777;*/
     }
 
     .hljs {
       font-size: 75%;
     }
 
+    strong {
+      color: white;
+    }
+
   </style>
-<body>
+<body ng-controller="PresentationCtrl" ng-keypress="keypress($event)">
   <div ng-view></div>
 </body>
 </html>
