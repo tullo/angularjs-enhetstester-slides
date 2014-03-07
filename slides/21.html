@@ -1,20 +1,21 @@
-<pre figlet="speed" style="font-size: 60%">    Controller</pre>
+<pre figlet="double">      Service</pre>
 <pre highlight>
-  angular.module('app').controller('PresentationCtrl',function($scope,$location,$routeParams){
+  it('should return a promise that resolves to a figlet',function(done){
+    inject(function($rootScope,figlet){
+      
+      //Mock Figlet.write
+      window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
 
-    $scope.pageNr = $routeParams.nr || 1;
+      var promise = figlet('text','font'); 
 
-    $scope.$watch('pageNr',function(value,old){
-        $location.path('/slides/'+value);
+      expect(promise).to.be.eventually.equal('foobar').and.notify(done);
+
+      //Kick angular in the crotch and resolve that damn promise! 
+      $rootScope.$apply();
+
     });
-
-    $scope.next = function(){
-      $scope.pageNr++;
-    };
-
-    $scope.prev = function(){
-      $scope.pageNr--;
-    };
-
   });
 </pre>
+<div style="white-space: pre; font-size: 80%; color: white;">
+  PhantomJS 1.9.7 (Linux): Executed 7 of 7 <span style="color: green">SUCCESS</span> (0.407 secs / 0.047 secs)
+</div>

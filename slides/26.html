@@ -1,31 +1,26 @@
 <pre figlet="speed" style="font-size: 60%">    Directive</pre>
 <pre highlight>
-  describe('Figlet directive',function(){
-    it('should replace the contents of the figlet',function(){
+  &lt;pre figlet="doh"&gt;awesome&lt;/pre&gt;
+</pre>
+<pre highlight>
+  angular.module('app').directive('figlet',function(figlet){
+    return {
+      scope: false,
+      link: function(scope,element,attrs){
+
+        attrs.$observe('figlet',function(font){
+          
+          if (font) {
+            figlet(element.text(),font).then(function(txt){
+              element.text(txt);
+            });
+          }  
+          
+        });
       
-
-
-
-
-
-
-
-
-        ......? men hur? Vi kan ju inte injecta?
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    });
+      }
+    };
   });
+
+
 </pre>

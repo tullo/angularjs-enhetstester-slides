@@ -1,19 +1,16 @@
 <pre figlet="double">      Service</pre>
 <pre highlight>
   it('should return a promise that resolves to a figlet',function(done){
-    inject(function($rootScope,figlet){
+    inject(function(figlet){
       
       //Mock Figlet.write
       window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
 
       var promise = figlet('text','font'); 
-      
-      //Resolve promise and test result 
-      promise.then(function(result){
-        expect(result).to.be.equal('foobar');
-        done();
-      });
+
+      ....???
 
     });
   });
+
 </pre>

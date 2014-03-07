@@ -1,20 +1,8 @@
-<pre figlet="double">      Service</pre>
-<pre highlight>
-    angular.module('app').factory('figlet',function($q,$rootScope,$timeout){
-      var defaultFont = 'cybermedium';
+<pre figlet="eftifont">But what about AngularJS?</pre>
+<pre>
+  # Exempel app att testa
+  # ...den här!
+  # Vi ska testa services, controllers och ett directive
 
-      return function(txt,font) {
-        var deferred = $q.defer();
-        font = font || defaultFont;
-        
-        Figlet.write(txt,font,function(result){
-
-          deferred.resolve(result);
-          $rootScope.$apply();
-          
-        });
-
-        return deferred.promise;
-      };
-    });
+  # https://github.com/davidlgj/angularjs-enhetstester-slides
 </pre>

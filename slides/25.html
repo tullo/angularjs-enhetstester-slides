@@ -1,26 +1,31 @@
-<pre figlet="speed" style="font-size: 60%">    Directive</pre>
+<pre figlet="speed" style="font-size: 60%">    Controller</pre>
 <pre highlight>
-  &lt;pre figlet="doh"&gt;awesome&lt;/pre&gt;
-</pre>
-<pre highlight>
-  angular.module('app').directive('figlet',function(figlet){
-    return {
-      scope: false,
-      link: function(scope,element,attrs){
+  describe('next method',function(){
+    it('should increase current pageNr and navigate to next slide',function(){    
 
-        attrs.$observe('figlet',function(font){
-          
-          if (font) {
-            figlet(element.text(),font).then(function(txt){
-              element.text(txt);
-            });
-          }  
-          
+     inject(function($rootScope,$controller){
+        var scope = $rootScope.$new();
+
+        //Create a spy to spy on $location.path calls.
+        var pathSpy = sinon.spy();
+
+        //Instantiate the controller, passing along our new scope
+        //and overriding $location
+        $controller("PresentationCtrl",{ 
+          '$scope':scope, 
+          '$location': { path: pathSpy }
         });
-      
-      }
-    };
+
+        expect(scope.pageNr).to.be.equal(1);
+        scope.next();
+        expect(scope.pageNr).to.be.equal(2);
+
+        //scope.$apply works as well
+        scope.$digest();
+
+        expect(pathSpy).to.have.been.calledOnce.and.calledWith('/slides/2');
+        
+      });
+    });
   });
-
-
 </pre>

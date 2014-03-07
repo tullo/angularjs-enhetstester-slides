@@ -22,7 +22,7 @@ MMMMMMMM               MMMMMMMM   ooooooooooo      ddddddddd   ddddd    uuuuuuuu
 
 //Create module 'app'
 angular.module('app',['ngRoute'])
-       .constant('nrOfPages',35);
+       .constant('nrOfPages',31);
       
 
 
@@ -31,7 +31,6 @@ angular.module('app').config(function($routeProvider){
   
     $routeProvider.when('/slides/:nr',{
       templateUrl: function(params){
-        console.log(params);
         return '/slides/'+params.nr+'.html';
       }
     }).otherwise({

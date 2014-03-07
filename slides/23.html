@@ -5,7 +5,7 @@
      inject(function($rootScope,$controller){
         
         //Create a new scope for the controller to use.
-        scope = $rootScope.$new();
+        var scope = $rootScope.$new();
 
         //Instantiate the controller, passing along our new scope
         $controller("PresentationCtrl",{ 
@@ -15,11 +15,9 @@
         expect(scope.pageNr).to.be.equal(1);
         scope.next();
         
-        expect(scope.pageNr).to.be.equal(2);   
+        expect(scope.pageNr).to.be.equal(2);        
       });
     });
   });
-</pre>
-<pre>
-  # Men hur testar vi vår $watch?
+
 </pre>

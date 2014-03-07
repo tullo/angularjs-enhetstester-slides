@@ -1,13 +1,20 @@
 <pre figlet="double">      Service</pre>
 <pre highlight>
+    angular.module('app').factory('figlet',function($q,$rootScope,$timeout){
+      var defaultFont = 'cybermedium';
 
-
-  describe('Figlet service',function(){
-    it('should be a function',function(){
-      
-        //uh oh? how do we get hold of a service?
-        expect(figlet).to.be.a('function');
+      return function(txt,font) {
+        var deferred = $q.defer();
+        font = font || defaultFont;
         
+        Figlet.write(txt,font,function(result){
+
+          deferred.resolve(result);
+          $rootScope.$apply();
+          
+        });
+
+        return deferred.promise;
+      };
     });
-  });
 </pre>

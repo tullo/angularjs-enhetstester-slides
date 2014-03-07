@@ -1,16 +1,18 @@
 <pre figlet="double">      Service</pre>
 <pre highlight>
-  it('should return a promise that resolves to a figlet',function(done){
-    inject(function(figlet){
-      
-      //Mock Figlet.write
-      window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
+  beforeEach(module('app'));
 
-      var promise = figlet('text','font'); 
+  describe('Figlet service',function(){
+    it('should be a function',function(){
 
-      ....???
+      //peeew thank god for dependecy injection!
+      inject(function(figlet){  
+        expect(figlet).to.be.a('function');
+      });
 
     });
   });
-
+</pre>
+<pre>
+  # module() och inject() kommer från angular-mock 
 </pre>

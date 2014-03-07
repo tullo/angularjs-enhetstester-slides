@@ -1,18 +1,13 @@
 <pre figlet="double">      Service</pre>
 <pre highlight>
-  beforeEach(module('app'));
+
 
   describe('Figlet service',function(){
     it('should be a function',function(){
-
-      //peeew thank god for dependecy injection!
-      inject(function(figlet){  
+      
+        //uh oh? how do we get hold of a service?
         expect(figlet).to.be.a('function');
-      });
-
+        
     });
   });
-</pre>
-<pre>
-  # module() och inject() kommer från angular-mock 
 </pre>

@@ -2,30 +2,24 @@
 <pre highlight>
   describe('next method',function(){
     it('should increase current pageNr and navigate to next slide',function(){    
-
      inject(function($rootScope,$controller){
-        scope = $rootScope.$new();
-
-        //Create a spy to spy on $location.path calls.
-        pathSpy = sinon.spy();
+        
+        //Create a new scope for the controller to use.
+        var scope = $rootScope.$new();
 
         //Instantiate the controller, passing along our new scope
-        //and overriding $location
         $controller("PresentationCtrl",{ 
-          '$scope':scope, 
-          '$location': { path: pathSpy },
-          'nrOfPages': 3,
+          '$scope': scope 
         });
 
         expect(scope.pageNr).to.be.equal(1);
         scope.next();
         
-        //scope.$apply works as well
-        scope.$digest();
-
-        expect(scope.pageNr).to.be.equal(2);
-        expect(pathSpy).to.have.been.calledOnce.and.calledWith('/slides/2');
+        expect(scope.pageNr).to.be.equal(2);   
       });
     });
   });
+</pre>
+<pre>
+  # Men hur testar vi vår $watch?
 </pre>

@@ -1,22 +1,5 @@
-<pre figlet="double">      Service</pre>
-<pre highlight>
-    it('should return a promise that resolves to a figlet',function(done){
-    inject(function($rootScope,figlet){
-      
-      //Mock Figlet.write
-      window.Figlet = { write: function(t,f,fn){ setTimeout(function(){ fn('foobar');},10); } };
+<pre>
 
-      var promise = figlet('text','font'); 
-
-      expect(promise).to.be.eventually.equal('foobar').and.notify(done);
-
-      //Kick angular in the crotch and resolve that damn promise! 
-      $rootScope.$apply();
-
-    });
-  });
 
 </pre>
-<div style="white-space: pre; font-size: 80%;">
-  PhantomJS 1.9.7 (Linux): Executed 7 of 7 <span style="color: green">SUCCESS</span> (0.407 secs / 0.047 secs)
-</div>
+<pre figlet="doh" style="font-size: 70%;">WTF?</pre>
