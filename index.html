@@ -2,13 +2,7 @@
 <html lang="en" ng-app="app">
   <meta charset="utf-8">
   <title>PS</title>
-  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/monokai.min.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
-  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-  <script type="text/javascript" src="lib/asciimo.js"></script> 
-  <script type="text/javascript" src="http://code.angularjs.org/1.2.13/angular.min.js"></script>     
-  <script type="text/javascript" src="http://code.angularjs.org/1.2.13/angular-route.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  <link rel="stylesheet" href="bower_components/highlight/src/styles/monokai.css">
   <style type="text/css">
     html,body {
       width: 100%;
@@ -44,5 +38,11 @@
   </style>
 <body ng-controller="PresentationCtrl" ng-keypress="keypress($event)">
   <div ng-view></div>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/highlight/src/highlight.js"></script>
+  <script src="lib/asciimo.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

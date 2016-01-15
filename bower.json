@@ -1,0 +1,18 @@
+{
+  "name": "angularjs-enhetstester-slides",
+  "description": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "highlight": "~9.1.0",
+    "jquery": "~2.2.0"
+  }
+}
